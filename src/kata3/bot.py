@@ -12,20 +12,19 @@ logger = logging.getLogger(__name__)
 # Definimos algunas funciones para los comandos. Estos generalmente toman los dos argumentos update y context
 def start(update, context):
     """Envia un mensaje cuando se emita el comando /start."""
-    return ""
+    return 'Hola, Geeks!'
 
 def help(update, context):
     """Envia un mensaje cuando se emita el comando /help."""
-    return ""
+    return 'Ayudame!'
 
 def mayus(update, context):
-        #
-        return ""
+        return ' '.join(context.args).upper()
 
 def alreves(update, context):
     """Repite el mensaje del usuario."""
     #
-    return ""
+    return ''.join(update.message.text)[::-1]
 
 def error(update, context):
     """Envia los errores por consola"""
@@ -34,21 +33,24 @@ def error(update, context):
 def main():
     """Inicio del Bot"""
     #Colocamos el Token creado por FatherBot
-    updater = Updater("", use_context=True)
+    updater = Updater(token='', use_context=True)
 
+    #updater.dispatcher.add_handler(CommandHandler("start", start))
     # Es el Registro de Comandos a través del dispartcher
-    dp = #
+    #dp = updater.dispatcher
 
     # Añadimos a la lista de Registro todos los comandos con su función [start - help - mayus]
     #
     #
     #
-
+    updater.dispatcher.add_handler(CommandHandler("start", start))
+    updater.dispatcher.add_handler(CommandHandler("help", help))
+    updater.dispatcher.add_handler(CommandHandler("mayus", mayus))
     # Este comando es un Trigger que se lanza cuando no hay comandos [alreves]
     #
-    
+    #dp.add_handler(CommandHandler(, alreves))
     # Y este espera al error
-    dp.add_error_handler(error)
+    updater.dispatcher.add_error_handler(error)
 
     # Lanzamos el Bot
     updater.start_polling()
