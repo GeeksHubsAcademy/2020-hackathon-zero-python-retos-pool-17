@@ -9,6 +9,7 @@ options = ["Piedra", "Papel", "Tijeras"]
 def quienGana(player, ai):
     # inputs => player, ai. then formatted
     player = player.lower().capitalize()
+    ai = ai.lower().capitalize()
     if player == ai:
         return 'Empate!'
     elif player == 'Piedra':
