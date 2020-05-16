@@ -13,6 +13,9 @@
 
 ```
 
+Eduardo López Peñalver
+
+
 El modus operandi de trabajo es el siguiente:
 
 Debes 'Forkear' el proyecto a tu cuenta de Github.
